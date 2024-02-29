@@ -27,9 +27,6 @@ const RecipeList = () => {
                 <h2 className="recipe__search__result">""</h2>
               </div>
               <div className="recipes__list">
-                <i className="recipes__list__loading">
-                  <FontAwesomeIcon icon={faSpinner} />
-                </i>
                 <div className="recipe">
                   <figure className="recipe__img__wrapper">
                     <img

@@ -70,6 +70,7 @@ a {
 .nav__link:hover {
   color: var(--primary);
   border-bottom-color: #fff;
+  color: #b10000;
 }
 
 .nav__input__wrapper {
@@ -96,9 +97,7 @@ a {
   cursor: pointer;
 }
 
-.recipe__info__title:hover,
-.recipe__info__text:hover,
-.recipe__title:hover {
+.nav__search:hover{
   color: var(--primary);
 }
 
@@ -117,6 +116,10 @@ a {
 .nav__user {
   color: #fff;
   cursor: not-allowed;
+}
+
+.nav__user:hover{
+  color: var(--primary);
 }
 
 /* Landing Background */
@@ -211,6 +214,7 @@ a {
 
 .recipe__search:hover {
   transform: translateY(-50%) scale(1.1);
+  color: var(--primary);
 }
 
 .recipe__search:active {
@@ -296,20 +300,6 @@ a {
   flex-wrap: wrap;
   justify-content: space-around;
   position: relative;
-}
-
-.recipes__list__loading {
-  font-size: 64px;
-  color: #b10000;
-  display: none !important;
-  position: absolute;
-  top: 24px;
-  right: 43%;
-  animation: loading 1000ms infinite;
-}
-
-.recipes__list__loading-visible {
-  display: block !important;
 }
 
 @keyframes loading {
