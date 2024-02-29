@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto;
+  scroll-behavior: smooth;
+}
+
+:root{
+    --primary: #b10000;
+    --secondary: #1e1e1e;
+}
+
+.textcolor {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+body {
+  background-color: var(--secondary);
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+/* Navigation */
+
+.nav__content {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 80px;
+  z-index: 1;
+}
+
+.nav__left,
+.nav__right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__logo__wrapper {
+  width: 80px;
+  margin-right: 32px;
+}
+
+.nav__logo {
+  max-width: 100%;
+}
+
+.nav__link {
+  margin: 0 16px;
+  font-weight: 400;
+  font-size: 20px;
+  padding-bottom: 4px;
+  border-bottom: 1px transparent solid;
+  transition: color 400ms ease, border-bottom-color 400ms ease;
+}
+
+.nav__link:hover {
+  color: var(--primary);
+  border-bottom-color: #fff;
+}
+
+.nav__input__filter {
+  padding: 4px 12px 4px 4px;
+  border-radius: 0px;
+  width: 0px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  margin-right: 24px;
+  transition: width 500ms ease;
+  position: absolute;
+  font-size: 20px;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  transition: 400ms ease;
+  cursor: pointer;
+  z-index: 4;
+}
+
+.nav__input__filter:active,
+.nav__input__filter:focus{
+  outline:transparent;
+}
+
+.nav__input__filter:hover {
+  color: var(--primary);
+}
+
+.nav__input__filter__option{
+  color:black;
+}
+
+.nav__input__filter__option:hover{
+color: red;
+}
+
+.nav__input__wrapper {
+  position: relative;
+}
+
+.nav__input {
+  padding: 12px 4px 12px 32px;
+  border-radius: 40px;
+  width: 0px;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  margin-right: 24px;
+  transition: width 500ms ease;
+  cursor: default;
+}
+
+.nav__search {
+  position: absolute;
+  left: 8px;
+  top: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.fa-solid,
+.fa-regular {
+  color: white;
+}
+
+.fa-solid:hover,
+.fa-regular:hover {
+  color: var(--primary);
+}
+
+.recipe__info__title:hover,
+.recipe__info__text:hover,
+.recipe__title:hover {
+  color: var(--primary);
+}
+
+.nav__input:focus,
+.nav__input:active {
+  width: 240px;
+  outline: 2px #fff solid;
+  cursor: text;
+}
+
+.nav__input:focus:hover,
+.nav__input:active:hover {
+  outline: 2px var(--primary) solid;
+}
+
+.nav__user {
+  color: #fff;
+  cursor: not-allowed;
+}
+
+/* Landing Background */
+
+.recipe__background__wrapper {
+  height: 420px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 60px 50px 0 rgb(5, 5, 5, 0.45);
+}
+
+.recipe__background__img {
+  object-fit: cover;
+  max-width: 100%;
+  position: relative;
+  bottom: 40px;
+  filter: opacity(20%);
+}
+
+.recipe__background__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.recipe__background__title {
+  font-size: 60px;
+  font-weight: 900;
+  margin-top: 60px;
+  margin-bottom: 12px;
+}
+
+.recipe__background__para {
+  font-size: 25px;
+  font-weight: 400;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.recipe__background__button {
+  padding: 12px 30px;
+}
+
+.recipe__input__wrapper {
+  position: relative;
+}
+
+.recipe__input {
+  padding: 24px 60px 24px 30px;
+  border-radius: 40px;
+  background-color: transparent;
+  color: #fff;
+  border: 2px #fff solid;
+  font-size: 20px;
+  transition: 400ms ease;
+  max-width: 100%;
+}
+
+.recipe__input:focus,
+.recipe__input:active {
+  transform: scale(1.02);
+  outline: none;
+  box-shadow: 0px 0px 8px var(--primary);
+}
+
+.recipe__input:focus + .recipe__search {
+  transform: scale(1.02), translateY(-50%);
+}
+
+.recipe__input:hover {
+  border-color: var(--primary);
+}
+
+.recipe__search {
+  position: absolute;
+  font-size: 24px;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  transition: 400ms ease;
+  cursor: pointer;
+}
+
+.recipe__search:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.recipe__search:active {
+  transform: translateY(-50%) scale(0.8);
+}
