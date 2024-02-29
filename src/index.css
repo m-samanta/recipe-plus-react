@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
-
-
 * {
   margin: 0;
   padding: 0;
@@ -10,9 +8,9 @@
   scroll-behavior: smooth;
 }
 
-:root{
-    --primary: #b10000;
-    --secondary: #1e1e1e;
+:root {
+  --primary: #b10000;
+  --secondary: #1e1e1e;
 }
 
 .textcolor {
@@ -74,42 +72,6 @@ a {
   border-bottom-color: #fff;
 }
 
-.nav__input__filter {
-  padding: 4px 12px 4px 4px;
-  border-radius: 0px;
-  width: 0px;
-  background-color: transparent;
-  color: white;
-  border: none;
-  margin-right: 24px;
-  transition: width 500ms ease;
-  position: absolute;
-  font-size: 20px;
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
-  transition: 400ms ease;
-  cursor: pointer;
-  z-index: 4;
-}
-
-.nav__input__filter:active,
-.nav__input__filter:focus{
-  outline:transparent;
-}
-
-.nav__input__filter:hover {
-  color: var(--primary);
-}
-
-.nav__input__filter__option{
-  color:black;
-}
-
-.nav__input__filter__option:hover{
-color: red;
-}
-
 .nav__input__wrapper {
   position: relative;
 }
@@ -132,16 +94,6 @@ color: red;
   top: 10px;
   color: #fff;
   cursor: pointer;
-}
-
-.fa-solid,
-.fa-regular {
-  color: white;
-}
-
-.fa-solid:hover,
-.fa-regular:hover {
-  color: var(--primary);
 }
 
 .recipe__info__title:hover,
@@ -263,6 +215,19 @@ color: red;
 
 .recipe__search:active {
   transform: translateY(-50%) scale(0.8);
+}
+
+.recipe__background__filter {
+  padding-top: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border-bottom: 1px transparent solid;
+  transition: color 400ms ease, border-bottom-color 400ms ease;
+}
+
+.recipe__background__filter:hover {
+  color: var(--primary);
+  border-bottom-color: #fff;
 }
 
 /* Recipes */

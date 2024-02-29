@@ -51,12 +51,6 @@ const Nav = () => {
               </h3>
               <div className="recipe__background__search">
                 <div className="recipe__input__wrapper form__submit">
-                  <select className="nav__input__filter">
-                    <option value="" className="nav__input__filter__option meal__name">Search meal by name</option>
-                    <option value="" className="nav__input__filter__option meal__letter">List meals by first letter</option>
-                    <option value="" className="nav__input__filter__option meal__area">Filter by Area</option>
-                    <option value="" className="nav__input__filter__option meal__category">Filter by Category</option>
-                  </select>
                   <input
                     type="text"
                     className="recipe__input"
@@ -67,6 +61,9 @@ const Nav = () => {
                   </i>
                 </div>
               </div>
+              <h4 className="recipe__background__filter">
+                Advanced Filter
+              </h4>
             </div>
           </figure>
         </div>
