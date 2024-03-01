@@ -359,12 +359,50 @@ a {
   z-index: -2;
 }
 
+.recipe--skeleton {
+  width: 198px;
+  margin: 24px 8px;
+  background-color: #373737;
+  color: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 12px 0px rgb(5, 5, 5, 0.45);
+  position: relative;
+}
+
+.recipe__img__wrapper--skeleton {
+  background-color:#4F4F4F;
+  width: 100%;
+  max-height: 288px;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.recipe__img--skeleton{
+  width: 100%;
+  max-height: 288px;
+  height: 288px;
+  object-fit: cover;
+  transition: all 400ms ease;
+  z-index: -2;
+}
+
 .recipe__title {
   font-weight: 400;
   font-size: 14px;
   margin: 8px 0 24px 0;
   padding: 0 8px;
   color: #fff;
+  text-align: center;
+}
+
+.recipe__title--skeleton {
+  font-weight: 400;
+  font-size: 14px;
+  margin: 8px 0 24px 0;
+  padding: 0 8px;
+  color: #373737;
   text-align: center;
 }
 
