@@ -333,6 +333,7 @@ a {
   max-height: 288px;
   overflow: hidden;
   z-index: 1;
+  cursor: pointer;
 }
 
 .recipe__img__wrapper:hover .recipe__img {
@@ -408,4 +409,10 @@ a {
   left: 16px;
   opacity: 0;
   transition: opacity 400ms ease;
+}
+
+.recipe__info__title:hover,
+.recipe__info__icon:hover,
+.recipe__info__text:hover {
+color: var(--primary);
 }
