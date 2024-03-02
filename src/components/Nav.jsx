@@ -7,7 +7,14 @@ import PageLogo from "../assets/logo-white.png";
 import { AppContext } from "../context/AppContext";
 
 const Nav = () => {
-    const {  inputValue, handleKeyPress, handleIconClick, handleChange } = useContext(AppContext)
+  const {
+    inputValue,
+    handleKeyPress,
+    handleIconClick,
+    handleChange,
+    focusInput,
+    inputRef,
+  } = useContext(AppContext);
   return (
     <section id="landing">
       <div className="recipe__background">
@@ -27,11 +34,15 @@ const Nav = () => {
             <div className="nav__right">
               <div className="nav__input__wrapper">
                 <input
+                  ref={inputRef}
                   type="text"
                   className="nav__input"
                   placeholder="Find a Recipe"
+                  value={inputValue}
+                  onChange={handleChange}
+                  onKeyDown={handleKeyPress}
                 />
-                <i className="nav__search">
+                <i className="nav__search" onClick={focusInput}>
                   <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </i>
               </div>

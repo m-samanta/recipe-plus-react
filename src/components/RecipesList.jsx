@@ -25,7 +25,7 @@ const RecipeList = () => {
                 <h2 className="recipe__search__result">""</h2>
               </div>
               <div className="recipes__list">
-              {recipes.length > 0
+              {recipes?.length > 0
               ? recipes
                   .slice(0, 6)
                   .map((recipe) => (

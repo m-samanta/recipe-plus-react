@@ -3,28 +3,29 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import { AppContext } from "./context/AppContext";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function App() {
   const [recipes, setRecipes] = useState([]);
+  const [inputValue, setInputValue] = useState('');
+  const [searchQuery, setSearchQuery] = useState('chicken');
+  const inputRef = useRef(null);
 
-  async function fetchRecipes() {
-    const response = await axios.get("https://themealdb.com/api/json/v1/1/search.php?s=chicken");
+  async function fetchRecipes(searchQuery) {
+    const response = await axios.get(`https://themealdb.com/api/json/v1/1/search.php?s=${searchQuery}`);
     const { data: recipesData } = response;
   
     setRecipes(recipesData.meals);
   }
 
-    const [inputValue, setInputValue] = useState('');
-
    
   useEffect(() => {
-    fetchRecipes();
-  }, []);
+      fetchRecipes(searchQuery)
+  }, [searchQuery]);
 
   const handleKeyPress = (event) => {
     if (event.keyCode === 13) {
-      console.log('Pressed Enter:', inputValue);
+      setSearchQuery(inputValue.trim())
     }
   }
 
@@ -32,17 +33,18 @@ function App() {
     setInputValue(event.target.value);
   };
  
-  const handleSearch = (inputValue) => {
-    console.log('Clicked Search:', inputValue);
+  const handleIconClick = () => {
+    setSearchQuery(inputValue.trim())
+
   };
 
-  const handleIconClick = () => {
-    handleSearch(inputValue);
+  const focusInput = () => {
+    inputRef.current.focus();
   };
 
 
   return (
-    <AppContext.Provider value={{ recipes, handleKeyPress, handleIconClick, handleChange }}>
+    <AppContext.Provider value={{ recipes, handleKeyPress, handleIconClick, handleChange, focusInput, inputRef }}>
       <Router>
         <Nav />
         <Routes>
@@ -54,6 +56,3 @@ function App() {
 }
 
 export default App;
-
-
-// search functions + filter
