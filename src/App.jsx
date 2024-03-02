@@ -15,13 +15,34 @@ function App() {
     setRecipes(recipesData.meals);
   }
 
-  
+    const [inputValue, setInputValue] = useState('');
+
+   
   useEffect(() => {
     fetchRecipes();
   }, []);
 
+  const handleKeyPress = (event) => {
+    if (event.keyCode === 13) {
+      console.log('Pressed Enter:', inputValue);
+    }
+  }
+
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
+ 
+  const handleSearch = (inputValue) => {
+    console.log('Clicked Search:', inputValue);
+  };
+
+  const handleIconClick = () => {
+    handleSearch(inputValue);
+  };
+
+
   return (
-    <AppContext.Provider value={{ recipes }}>
+    <AppContext.Provider value={{ recipes, handleKeyPress, handleIconClick, handleChange }}>
       <Router>
         <Nav />
         <Routes>
@@ -33,3 +54,6 @@ function App() {
 }
 
 export default App;
+
+
+// search functions + filter
