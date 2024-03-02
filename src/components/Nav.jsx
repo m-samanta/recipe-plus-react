@@ -5,6 +5,7 @@ import React, { useContext } from "react";
 import LandingBackground from "../assets/food-header.jpg";
 import PageLogo from "../assets/logo-white.png";
 import { AppContext } from "../context/AppContext";
+import Filter from "./ui/Filter";
 
 const Nav = () => {
   const {
@@ -16,6 +17,7 @@ const Nav = () => {
     inputRef,
   } = useContext(AppContext);
   return (
+<>
     <section id="landing">
       <div className="recipe__background">
         <figure className="recipe__background__wrapper">
@@ -66,27 +68,30 @@ const Nav = () => {
               choice for <span className="textcolor">your next meal</span> is
               endless!
             </h3>
-            <div className="recipe__background__search">
-              <div className="recipe__input__wrapper form__submit">
-                <input
-                  type="text"
-                  className="recipe__input"
-                  placeholder="Find a Recipe"
-                  value={inputValue}
-                  onChange={handleChange}
-                  onKeyDown={handleKeyPress}
-                />
-                <i className="recipe__search" onClick={handleIconClick}>
-                  {" "}
-                  <FontAwesomeIcon icon={faMagnifyingGlass} />
-                </i>
+              <div className="recipe__background__search">
+                <div className="recipe__input__wrapper form__submit">
+                  <input
+                    type="text"
+                    className="recipe__input"
+                    placeholder="Find a Recipe"
+                    value={inputValue}
+                    onChange={handleChange}
+                    onKeyDown={handleKeyPress}
+                  />
+                  <i className="recipe__search" onClick={handleIconClick}>
+                    {" "}
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                  </i>
+                </div>
+              <h4 className="recipe__background__filter" onClick={focusInput}>Advanced Filter</h4>
+              <Filter />
               </div>
             </div>
-            <h4 className="recipe__background__filter">Advanced Filter</h4>
-          </div>
         </figure>
       </div>
     </section>
+</>
+
   );
 };
 
