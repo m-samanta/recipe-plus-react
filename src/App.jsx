@@ -12,6 +12,7 @@ function App() {
   const [inputValue, setInputValue] = useState('');
   const [searchQuery, setSearchQuery] = useState('chicken');
   const [inputPlaceholder, setInputPlaceholder] = useState('Find a Recipe by Name');
+  const [searchMade, setSearchMade] = useState(false)
   const inputRef = useRef(null);
 
   async function fetchRecipes(searchQuery) {
@@ -52,6 +53,7 @@ function App() {
   const handleKeyPress = (event) => {
     if (event.keyCode === 13) {
       setSearchQuery(inputValue.trim())
+      setSearchMade(true)
     }
   }
 
@@ -61,7 +63,7 @@ function App() {
  
   const handleIconClick = () => {
     setSearchQuery(inputValue.trim())
-
+    setSearchMade(true);
   };
 
   const focusInput = () => {
@@ -70,7 +72,7 @@ function App() {
 
 
   return (
-    <AppContext.Provider value={{ recipes, handleKeyPress, handleIconClick, handleChange, focusInput, inputRef, handleFilterChange, inputPlaceholder }}>
+    <AppContext.Provider value={{ searchQuery, recipes, handleKeyPress, handleIconClick, handleChange, focusInput, inputRef, handleFilterChange, inputPlaceholder, searchMade }}>
       <Router>
         <Nav />
         <Routes>
