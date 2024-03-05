@@ -16,7 +16,7 @@ const Nav = () => {
     handleChange,
     focusInput,
     inputRef,
-    inputPlaceholder
+    inputPlaceholder,
   } = useContext(AppContext);
 
   const [filterOpen, setFilterOpen] = useState(false)
