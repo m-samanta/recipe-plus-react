@@ -16,6 +16,7 @@ const Nav = () => {
     handleChange,
     focusInput,
     inputRef,
+    inputPlaceholder
   } = useContext(AppContext);
 
   const [filterOpen, setFilterOpen] = useState(false)
@@ -43,7 +44,7 @@ const Nav = () => {
                   ref={inputRef}
                   type="text"
                   className="nav__input"
-                  placeholder="Find a Recipe"
+                  placeholder={inputPlaceholder}
                   value={inputValue}
                   onChange={handleChange}
                   onKeyDown={handleKeyPress}
@@ -77,7 +78,7 @@ const Nav = () => {
                   <input
                     type="text"
                     className="recipe__input"
-                    placeholder="Find a Recipe"
+                    placeholder={inputPlaceholder}
                     value={inputValue}
                     onChange={handleChange}
                     onKeyDown={handleKeyPress}

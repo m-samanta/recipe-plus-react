@@ -18,13 +18,10 @@ const Filter = ({ filterOpen, setFilterOpen }) => {
             <div className="recipe__filter__select__1" onClick={() => {handleFilterChange('search.php?s'); setFilterOpen(false)}}>
         <span className="recipe__filter__select__text">Find a Recipe by Name</span>
             </div>
-            <div className="recipe__filter__select__2" onClick={() => {handleFilterChange('search.php?f'); setFilterOpen(false)}}>
-        <span className="recipe__filter__select__text">Find a Recipe by First Letter</span>
-            </div>
-            <div className="recipe__filter__select__3" onClick={() => {handleFilterChange('filter.php?a'); setFilterOpen(false)}}>
+            <div className="recipe__filter__select__2" onClick={() => {handleFilterChange('filter.php?a'); setFilterOpen(false)}}>
         <span className="recipe__filter__select__text">Find a Recipe by Area</span>
             </div>
-            <div className="recipe__filter__select__4" onClick={() => {handleFilterChange('filter.php?c'); setFilterOpen(false)}}>
+            <div className="recipe__filter__select__3" onClick={() => {handleFilterChange('filter.php?c'); setFilterOpen(false)}}>
         <span className="recipe__filter__select__text">Find a Recipe by Category</span>
             </div>
         </div>

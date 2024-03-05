@@ -11,6 +11,7 @@ function App() {
   const [recipes, setRecipes] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [searchQuery, setSearchQuery] = useState('chicken');
+  const [inputPlaceholder, setInputPlaceholder] = useState('Find a Recipe by Name');
   const inputRef = useRef(null);
 
   async function fetchRecipes(searchQuery) {
@@ -22,7 +23,24 @@ function App() {
   }
 
   const handleFilterChange = (newFilter) => {
-    setFilter(newFilter);
+    let placeholderText = '';
+
+  switch (newFilter) {
+    case 'search.php?s':
+      placeholderText = 'Find a Recipe by Name';
+      break;
+    case 'filter.php?a':
+      placeholderText = 'Find a Recipe by Area';
+      break;
+    case 'filter.php?c':
+      placeholderText = 'Find a Recipe by Category';
+      break;
+  }
+
+  setFilter(newFilter);
+  setInputPlaceholder(placeholderText);
+
+    
     console.log(handleChange)
 };
   
@@ -52,7 +70,7 @@ function App() {
 
 
   return (
-    <AppContext.Provider value={{ recipes, handleKeyPress, handleIconClick, handleChange, focusInput, inputRef, handleFilterChange }}>
+    <AppContext.Provider value={{ recipes, handleKeyPress, handleIconClick, handleChange, focusInput, inputRef, handleFilterChange, inputPlaceholder }}>
       <Router>
         <Nav />
         <Routes>
