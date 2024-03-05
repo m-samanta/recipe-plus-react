@@ -3,7 +3,7 @@ import { AppContext } from "../context/AppContext";
 import RecipeBanner from "./ui/RecipeBanner";
 import RecipeBannerSkeleton from "./ui/RecipeBannerSkeleton";
 
-const RecipeList = () => {
+const RecipesList = () => {
   const { recipes, searchMade, searchQuery } = useContext(AppContext)
 
   return (
@@ -46,4 +46,4 @@ const RecipeList = () => {
   );
 };
 
-export default RecipeList;
+export default RecipesList;

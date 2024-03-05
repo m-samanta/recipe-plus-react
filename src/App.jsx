@@ -5,7 +5,6 @@ import { AppContext } from "./context/AppContext";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import RecipePage from "./pages/RecipePage";
-import SearchPage from "./pages/SearchPage";
 
 function App() {
   const [filter, setFilter] = useState("search.php?s");
@@ -43,8 +42,6 @@ function App() {
 
     setFilter(newFilter);
     setInputPlaceholder(placeholderText);
-
-    console.log(handleChange);
   };
 
   useEffect(() => {
@@ -91,7 +88,6 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/recipe/:idMeal" element={<RecipePage />} />
-          <Route path="/recipe/:SearchQuery" element={<SearchPage />} />
         </Routes>
       </Router>
     </AppContext.Provider>
