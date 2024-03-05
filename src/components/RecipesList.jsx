@@ -4,10 +4,10 @@ import RecipeBanner from "./ui/RecipeBanner";
 import RecipeBannerSkeleton from "./ui/RecipeBannerSkeleton";
 
 const RecipesList = () => {
-  const { recipes, searchMade, searchQuery } = useContext(AppContext)
+  const { recipes, searchMade, searchQuery } = useContext(AppContext);
 
   return (
-<>
+    <>
       <section id="recipes">
         <div className="container">
           <div className="row">
@@ -16,9 +16,7 @@ const RecipesList = () => {
                 {}
                 {searchMade && (
                   <>
-                    <h2 className="recipes__top__title">
-                      Search results for:
-                    </h2>
+                    <h2 className="recipes__top__title">Search results for:</h2>
                     <h2 className="recipe__search__result">"{searchQuery}"</h2>
                   </>
                 )}
@@ -34,9 +32,9 @@ const RecipesList = () => {
                       .map((recipe) => (
                         <RecipeBanner key={recipe.idMeal} recipe={recipe} />
                       ))
-                  : new Array(6).fill(0).map((_, index) => (
-                      <RecipeBannerSkeleton key={index} />
-                    ))}
+                  : new Array(6)
+                      .fill(0)
+                      .map((_, index) => <RecipeBannerSkeleton key={index} />)}
               </div>
             </div>
           </div>

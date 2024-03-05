@@ -451,31 +451,47 @@ a {
   opacity: 0;
   display: flex;
   transition: 300ms ease;
-
 }
 
-.recipe__filter-open.recipe__filter__wrapper{
+.recipe__filter-open.recipe__filter__wrapper {
   visibility: visible;
   opacity: 1;
 }
 
 .recipe__filter {
-  border-radius: 40px;
+  border-radius: 10px;
   background-color: black;
   color: #fff;
   border: none;
-  font-size: 20px;
-  transition: height 400ms ease;
   max-width: 50%;
   margin: auto;
   cursor: default;
-  height: 100px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: left;
+  padding: 10px 10px;
 }
 
 .recipe__filter:hover {
-  border: 2px var(--primary) solid;
+  border: 2px var(--secondary) solid;
 }
 
-.recipe__filter__select__text{
+.recipe__filter__select {
+  border-radius: 10px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  height: auto;
+  padding: 10px 10px;
+}
+
+.recipe__filter__select:hover {
+  border: 1px var(--primary) solid;
+  background-color: var(--secondary);
+}
+
+.recipe__filter__select__text {
   font-size: 14px;
 }

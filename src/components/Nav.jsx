@@ -19,60 +19,60 @@ const Nav = () => {
     inputPlaceholder,
   } = useContext(AppContext);
 
-  const [filterOpen, setFilterOpen] = useState(false)
+  const [filterOpen, setFilterOpen] = useState(false);
 
   return (
-<>
-    <section id="landing">
-      <div className="recipe__background">
-        <figure className="recipe__background__wrapper">
-          <div className="nav__content">
-            <div className="nav__left">
-              <figure className="nav__logo__wrapper">
-                <img src={PageLogo} alt="" className="nav__logo" />
-              </figure>
-              <Link to="" className="nav__link">
-                Home
-              </Link>
-              <Link to="" className="nav__link">
-                Contact
-              </Link>
-            </div>
-            <div className="nav__right">
-              <div className="nav__input__wrapper">
-                <input
-                  ref={inputRef}
-                  type="text"
-                  className="nav__input"
-                  placeholder={inputPlaceholder}
-                  value={inputValue}
-                  onChange={handleChange}
-                  onKeyDown={handleKeyPress}
-                />
-                <i className="nav__search" onClick={focusInput}>
-                  <FontAwesomeIcon icon={faMagnifyingGlass} />
+    <>
+      <section id="landing">
+        <div className="recipe__background">
+          <figure className="recipe__background__wrapper">
+            <div className="nav__content">
+              <div className="nav__left">
+                <figure className="nav__logo__wrapper">
+                  <img src={PageLogo} alt="" className="nav__logo" />
+                </figure>
+                <Link to="" className="nav__link">
+                  Home
+                </Link>
+                <Link to="" className="nav__link">
+                  Contact
+                </Link>
+              </div>
+              <div className="nav__right">
+                <div className="nav__input__wrapper">
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    className="nav__input"
+                    placeholder={inputPlaceholder}
+                    value={inputValue}
+                    onChange={handleChange}
+                    onKeyDown={handleKeyPress}
+                  />
+                  <i className="nav__search" onClick={focusInput}>
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                  </i>
+                </div>
+                <i className="nav__user">
+                  {" "}
+                  <FontAwesomeIcon icon={faCircleUser} />
                 </i>
               </div>
-              <i className="nav__user">
-                {" "}
-                <FontAwesomeIcon icon={faCircleUser} />
-              </i>
             </div>
-          </div>
-          <img
-            src={LandingBackground}
-            alt=""
-            className="recipe__background__img"
-          />
-          <div className="recipe__background__text">
-            <h1 className="recipe__background__title">
-              Recipe <span className="textcolor">+</span>
-            </h1>
-            <h3 className="recipe__background__para">
-              With over <span className="textcolor">100</span> recipes, the
-              choice for <span className="textcolor">your next meal</span> is
-              endless!
-            </h3>
+            <img
+              src={LandingBackground}
+              alt=""
+              className="recipe__background__img"
+            />
+            <div className="recipe__background__text">
+              <h1 className="recipe__background__title">
+                Recipe <span className="textcolor">+</span>
+              </h1>
+              <h3 className="recipe__background__para">
+                With over <span className="textcolor">100</span> recipes, the
+                choice for <span className="textcolor">your next meal</span> is
+                endless!
+              </h3>
               <div className="recipe__background__search">
                 <div className="recipe__input__wrapper form__submit">
                   <input
@@ -88,15 +88,19 @@ const Nav = () => {
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                   </i>
                 </div>
-              <h4 className="recipe__background__filter" onClick={() => setFilterOpen(true)}>Advanced Filter</h4>
+                <h4
+                  className="recipe__background__filter"
+                  onClick={() => setFilterOpen(true)}
+                >
+                  Advanced Filter
+                </h4>
               </div>
             </div>
-        </figure>
-      </div>
-    </section>
-    <Filter filterOpen={filterOpen} setFilterOpen={setFilterOpen}/>
-</>
-
+          </figure>
+        </div>
+      </section>
+      <Filter filterOpen={filterOpen} setFilterOpen={setFilterOpen} />
+    </>
   );
 };
 
