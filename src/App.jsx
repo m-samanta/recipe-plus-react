@@ -6,19 +6,26 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 
 function App() {
+  const [filter, setFilter] = useState('search.php?s')
   const [recipes, setRecipes] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [searchQuery, setSearchQuery] = useState('chicken');
   const inputRef = useRef(null);
 
   async function fetchRecipes(searchQuery) {
-    const response = await axios.get(`https://themealdb.com/api/json/v1/1/search.php?s=${searchQuery}`);
+    const searchURL = `https://themealdb.com/api/json/v1/1/${filter}=${searchQuery}`;
+    const response = await axios.get(searchURL);
     const { data: recipesData } = response;
   
     setRecipes(recipesData.meals);
   }
 
-   
+  const handleFilterChange = (newFilter) => {
+    setFilter(newFilter);
+    console.log(handleChange)
+};
+  
+
   useEffect(() => {
       fetchRecipes(searchQuery)
   }, [searchQuery]);
@@ -44,7 +51,7 @@ function App() {
 
 
   return (
-    <AppContext.Provider value={{ recipes, handleKeyPress, handleIconClick, handleChange, focusInput, inputRef }}>
+    <AppContext.Provider value={{ recipes, handleKeyPress, handleIconClick, handleChange, focusInput, inputRef, handleFilterChange }}>
       <Router>
         <Nav />
         <Routes>

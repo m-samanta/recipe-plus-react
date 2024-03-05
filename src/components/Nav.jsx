@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import LandingBackground from "../assets/food-header.jpg";
 import PageLogo from "../assets/logo-white.png";
 import { AppContext } from "../context/AppContext";
@@ -16,6 +16,9 @@ const Nav = () => {
     focusInput,
     inputRef,
   } = useContext(AppContext);
+
+  const [filterOpen, setFilterOpen] = useState(false)
+
   return (
 <>
     <section id="landing">
@@ -83,13 +86,13 @@ const Nav = () => {
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                   </i>
                 </div>
-              <h4 className="recipe__background__filter" onClick={focusInput}>Advanced Filter</h4>
-              <Filter />
+              <h4 className="recipe__background__filter" onClick={() => setFilterOpen(true)}>Advanced Filter</h4>
               </div>
             </div>
         </figure>
       </div>
     </section>
+    <Filter filterOpen={filterOpen} setFilterOpen={setFilterOpen}/>
 </>
 
   );

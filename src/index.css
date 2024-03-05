@@ -225,7 +225,9 @@ a {
   padding-top: 10px;
   margin-left: 110px;
   margin-right: 110px;
+  position: absolute;
   font-size: 14px;
+  color: #fff;
   cursor: pointer;
   border-bottom: 1px transparent solid;
   transition: color 400ms ease, border-bottom-color 400ms ease;
@@ -449,19 +451,45 @@ a {
 
 /* Filter */
 
-.recipe__filter {
-  padding: 12px 0px;
-  border-radius: 40px;
-  background-color: transparent;
-  color: #fff;
-  border: 2px #fff solid;
-  font-size: 20px;
-  transition: 400ms ease;
-  max-width: 50%;
-  margin: auto;
-  /* display: none; */
+.recipe__filter__wrapper {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 30;
+  backdrop-filter: blur(2px);
+  justify-content: end;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  transition: 300ms ease;
+
 }
 
-.recipe__filter:hover{
+.recipe__filter-open.recipe__filter__wrapper{
+  visibility: visible;
+  opacity: 1;
+}
+
+.recipe__filter {
+  border-radius: 40px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  transition: height 400ms ease;
+  max-width: 50%;
+  margin: auto;
+  cursor: default;
+  height: 100px;
+}
+
+.recipe__filter:hover {
   border: 2px var(--primary) solid;
+}
+
+.recipe__filter__select__text{
+  font-size: 14px;
 }
