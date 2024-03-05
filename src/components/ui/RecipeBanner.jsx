@@ -5,11 +5,12 @@ import {
   faList,
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const RecipeBanner = ({ recipe }) => {
   return (
     <>
-      <div className="recipe">
+      <Link to={`/recipe/${recipe.idMeal}`} className="recipe">
         <figure className="recipe__img__wrapper">
           <img src={recipe.strMealThumb} alt="" className="recipe__img" />
           <h3 className="recipe__info__title">{recipe.strMeal}</h3>
@@ -38,7 +39,7 @@ const RecipeBanner = ({ recipe }) => {
           </div>
         </figure>
         <h4 className="recipe__title">{recipe.strMeal}</h4>
-      </div>
+      </Link>
     </>
   );
 };

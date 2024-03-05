@@ -6,6 +6,7 @@ import LandingBackground from "../assets/food-header.jpg";
 import PageLogo from "../assets/logo-white.png";
 import { AppContext } from "../context/AppContext";
 import Filter from "./ui/Filter";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const {
@@ -29,12 +30,12 @@ const Nav = () => {
               <figure className="nav__logo__wrapper">
                 <img src={PageLogo} alt="" className="nav__logo" />
               </figure>
-              <a href="" className="nav__link">
+              <Link to="" className="nav__link">
                 Home
-              </a>
-              <a href="" className="nav__link">
+              </Link>
+              <Link to="" className="nav__link">
                 Contact
-              </a>
+              </Link>
             </div>
             <div className="nav__right">
               <div className="nav__input__wrapper">

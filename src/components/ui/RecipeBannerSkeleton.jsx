@@ -1,12 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEarthAmericas,
-  faList,
-  faStar,
-} from "@fortawesome/free-solid-svg-icons";
-import Img1 from "../../assets/postertest1.jpg"
-
 
 const RecipeBannerSkeleton = () => {
     return (

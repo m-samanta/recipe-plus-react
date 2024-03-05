@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import { AppContext } from "./context/AppContext";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
+import RecipePage from "./pages/RecipePage";
 
 function App() {
   const [filter, setFilter] = useState('search.php?s')
@@ -56,6 +57,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/recipe/:idMeal" element={<RecipePage />} />
         </Routes>
       </Router>
     </AppContext.Provider>

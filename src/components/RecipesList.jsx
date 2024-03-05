@@ -1,10 +1,3 @@
-import Img1 from "../assets/postertest1.jpg"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEarthAmericas,
-  faList,
-  faStar,
-} from "@fortawesome/free-solid-svg-icons";
 import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import RecipeBanner from "./ui/RecipeBanner";
