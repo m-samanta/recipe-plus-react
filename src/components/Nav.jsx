@@ -21,6 +21,13 @@ const Nav = () => {
 
   const [filterOpen, setFilterOpen] = useState(false);
 
+  const handleSearch = () => {
+    if (inputValue.trim() !== "") {
+      handleIconClick();
+      window.location.href = "/recipe/search"; // Navigate to the search page
+    }
+  };
+
   return (
     <>
       <section id="landing">
@@ -31,11 +38,11 @@ const Nav = () => {
                 <figure className="nav__logo__wrapper">
                   <img src={PageLogo} alt="" className="nav__logo" />
                 </figure>
-                <Link to="" className="nav__link">
+                <Link to="/" className="nav__link__1">
                   Home
                 </Link>
-                <Link to="" className="nav__link">
-                  Contact
+                <Link to="/recipe" className="nav__link__2">
+                  Recipe
                 </Link>
               </div>
               <div className="nav__right">
