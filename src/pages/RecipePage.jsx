@@ -9,7 +9,9 @@ const RecipePage = () => {
 
   return (
     <>
-      <div className="recipe__page__wrapper__test">
+      <div className="container">
+
+      <div className="recipe__page__wrapper">
         {selectedRecipe && (
           <>
             <img
@@ -19,6 +21,7 @@ const RecipePage = () => {
             <h2>{selectedRecipe.strMeal}</h2>
           </>
         )}
+      </div>
       </div>
     </>
   );
