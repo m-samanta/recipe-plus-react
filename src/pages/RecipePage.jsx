@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AppContext } from "../context/AppContext";
 import { useParams } from "react-router-dom";
 import RecipesList from "../components/RecipesList";
@@ -8,6 +8,10 @@ const RecipePage = () => {
   const { idMeal } = useParams();
   const selectedRecipe = recipes.find((recipe) => recipe.idMeal === idMeal);
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  })
+  
   return (
     <>
       <div className="container">
