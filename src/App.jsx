@@ -11,7 +11,7 @@ function App() {
   const [filter, setFilter] = useState("search.php?s");
   const [recipes, setRecipes] = useState([]);
   const [inputValue, setInputValue] = useState("");
-  const [searchQuery, setSearchQuery] = useState("chicken");
+  const [searchQuery, setSearchQuery] = useState("");
   const [inputPlaceholder, setInputPlaceholder] = useState(
     "Find a Recipe by Name"
   );

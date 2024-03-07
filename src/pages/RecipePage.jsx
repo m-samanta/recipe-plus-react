@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import { useParams } from "react-router-dom";
+import RecipesList from "../components/RecipesList";
 
 const RecipePage = () => {
   const { recipes } = useContext(AppContext);
@@ -23,6 +24,7 @@ const RecipePage = () => {
         )}
       </div>
       </div>
+      <RecipesList />
     </>
   );
 };
