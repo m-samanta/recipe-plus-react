@@ -510,3 +510,18 @@ a {
 .recipe__filter__select__text {
   font-size: 14px;
 }
+
+/* Recipe Page */
+
+.recipe__page__wrapper{
+  padding: 40px 80px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto 0;
+  gap: 40px;
+  color: white;
+}
+
+.recipe__page__img{
+  
+}

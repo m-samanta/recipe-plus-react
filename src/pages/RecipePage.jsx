@@ -19,7 +19,7 @@ const RecipePage = () => {
       <div className="recipe__page__wrapper">
         {selectedRecipe && (
           <>
-            <img
+            <img className="recipe__page__img"
               src={selectedRecipe.strMealThumb}
               alt=""
             />
