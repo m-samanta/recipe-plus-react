@@ -7,6 +7,7 @@ import PageLogo from "../assets/logo-white.png";
 import { AppContext } from "../context/AppContext";
 import Filter from "./ui/Filter";
 import { Link } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Nav = () => {
   const {
@@ -20,11 +21,13 @@ const Nav = () => {
   } = useContext(AppContext);
 
   const [filterOpen, setFilterOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleSearch = () => {
-    if (inputValue.trim() !== "") {
-      handleIconClick();
-      window.location.href = "/recipe/search"; // Navigate to the search page
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (location.pathname !== "/recipe") {
+      navigate("/recipe");
     }
   };
 
@@ -47,18 +50,20 @@ const Nav = () => {
               </div>
               <div className="nav__right">
                 <div className="nav__input__wrapper">
-                  <input
-                    ref={inputRef}
-                    type="text"
-                    className="nav__input"
-                    placeholder={inputPlaceholder}
-                    value={inputValue}
-                    onChange={handleChange}
-                    onKeyDown={handleKeyPress}
-                  />
-                  <i className="nav__search" onClick={focusInput}>
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
-                  </i>
+                  <form onSubmit={handleSearch}>
+                    <input
+                      ref={inputRef}
+                      type="text"
+                      className="nav__input"
+                      placeholder={inputPlaceholder}
+                      value={inputValue}
+                      onChange={handleChange}
+                      onKeyDown={handleKeyPress}
+                    />
+                    <i className="nav__search" onClick={focusInput}>
+                      <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    </i>
+                  </form>
                 </div>
                 <i className="nav__user">
                   {" "}
@@ -82,18 +87,26 @@ const Nav = () => {
               </h3>
               <div className="recipe__background__search">
                 <div className="recipe__input__wrapper form__submit">
-                  <input
-                    type="text"
-                    className="recipe__input"
-                    placeholder={inputPlaceholder}
-                    value={inputValue}
-                    onChange={handleChange}
-                    onKeyDown={handleKeyPress}
-                  />
-                  <i className="recipe__search" onClick={handleIconClick}>
-                    {" "}
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
-                  </i>
+                  <form onSubmit={handleSearch}>
+                    <input
+                      type="text"
+                      className="recipe__input"
+                      placeholder={inputPlaceholder}
+                      value={inputValue}
+                      onChange={handleChange}
+                      onKeyDown={handleKeyPress}
+                    />
+                    <i
+                      className="recipe__search"
+                      onClick={(e) => {
+                        handleIconClick();
+                        handleSearch(e);
+                      }}
+                    >
+                      {" "}
+                      <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    </i>
+                  </form>
                 </div>
                 <h4
                   className="recipe__background__filter"

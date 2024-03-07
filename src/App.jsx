@@ -18,6 +18,13 @@ function App() {
   const [searchMade, setSearchMade] = useState(false);
   const inputRef = useRef(null);
 
+  async function fetchChickenRecipes() {
+    const searchURL = `https://themealdb.com/api/json/v1/1/search.php?s=chicken`;
+    const response = await axios.get(searchURL);
+    const { data: recipesData } = response;
+    setRecipes(recipesData.meals);
+  }
+
   async function fetchRecipes(searchQuery) {
     const searchURL = `https://themealdb.com/api/json/v1/1/${filter}=${searchQuery}`;
     const response = await axios.get(searchURL);
@@ -46,8 +53,12 @@ function App() {
   };
 
   useEffect(() => {
-    fetchRecipes(searchQuery);
-  }, [searchQuery]);
+    if (!searchMade) {
+      fetchChickenRecipes();
+    } else {
+      fetchRecipes(searchQuery);
+    }
+  }, [searchMade, searchQuery]);
 
   const handleKeyPress = (event) => {
     if (event.keyCode === 13) {
