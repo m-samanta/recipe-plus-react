@@ -18,6 +18,7 @@ const Nav = () => {
     focusInput,
     inputRef,
     inputPlaceholder,
+    handleHomePage
   } = useContext(AppContext);
 
   const [filterOpen, setFilterOpen] = useState(false);
@@ -41,10 +42,10 @@ const Nav = () => {
                 <figure className="nav__logo__wrapper">
                   <img src={PageLogo} alt="" className="nav__logo" />
                 </figure>
-                <Link to="/" className="nav__link__1">
+                <Link to="/" onClick={handleHomePage} className="nav__link__1">
                   Home
                 </Link>
-                <Link to="/recipe" className="nav__link__2">
+                <Link to="/recipe" onClick={handleIconClick} className="nav__link__2">
                   Recipe
                 </Link>
               </div>

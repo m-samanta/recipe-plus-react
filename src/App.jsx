@@ -72,6 +72,10 @@ function App() {
     setSearchMade(true);
   };
 
+  const handleHomePage = () => {
+    setSearchMade(false);
+  }
+
   const focusInput = () => {
     inputRef.current.focus();
   };
@@ -93,6 +97,7 @@ function App() {
         handleFilterChange,
         inputPlaceholder,
         searchMade,
+        handleHomePage
       }}
     >
       <Router>
