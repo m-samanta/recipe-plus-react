@@ -650,7 +650,7 @@ li{
   margin-bottom: 8px;
 }
 
-.source{
+.source--skeleton{
   width: 400px;
-  height: 16px;
+  height: 24px;
 }

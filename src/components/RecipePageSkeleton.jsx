@@ -55,7 +55,7 @@ const RecipeDetails = () => {
               <iframe className="recipe__page__video skeleton" width="560" height="315"></iframe>
             </div>
             <h2 className="recipe__page__base__text">
-              Source: <span className="source skeleton"/>
+              Source: <span className="source--skeleton skeleton"/>
             </h2>
           </div>
         </div>
