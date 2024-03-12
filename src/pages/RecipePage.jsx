@@ -90,7 +90,7 @@ const RecipePage = () => {
                 </div>
               )}
               {selectedRecipe.strSource && (
-                <p>
+                <h2 className="recipe__page__base__text">
                   Source:{" "}
                   <a
                     href={selectedRecipe.strSource}
@@ -99,7 +99,7 @@ const RecipePage = () => {
                   >
                     {selectedRecipe.strSource}
                   </a>
-                </p>
+                </h2>
               )}
               </div>
             </>
