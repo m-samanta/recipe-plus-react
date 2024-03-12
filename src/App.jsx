@@ -6,7 +6,6 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import RecipePage from "./pages/RecipePage";
 import SearchPage from "./pages/SearchPage";
-import RecipePageSkeleton from "./components/RecipePageSkeleton"
 
 function App() {
   const [filter, setFilter] = useState("search.php?s");
@@ -107,7 +106,6 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/recipe/:idMeal" element={<RecipePage />} />
           <Route path="/recipe" element={<SearchPage />} />
-          <Route path="/test" element={<RecipePageSkeleton />} />
         </Routes>
       </Router>
     </AppContext.Provider>

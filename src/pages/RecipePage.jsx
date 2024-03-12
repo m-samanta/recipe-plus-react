@@ -78,15 +78,16 @@ const RecipePage = () => {
                 </div>
                 <div className="recipe__page__info__row__2">
                   <h2 className="recipe__page__base__text">Instructions:</h2>
-                  <div className="recipe__page__para__wrapper">
+                  <ul className="recipe__page__para__wrapper">
                     {selectedRecipe.strInstructions
                       .split(".")
+                      .slice(0, -1)
                       .map((sentence, index) => (
-                        <p key={index} className="recipe__page__para">
-                          {sentence.trim()}
-                        </p>
+                        <li key={index} className="recipe__page__para">
+                          {sentence.trim()}.
+                        </li>
                       ))}
-                  </div>
+                  </ul>
 
                   {selectedRecipe.strYoutube && (
                     <div className="recipe__page__video">

@@ -38,16 +38,16 @@ const RecipeDetails = () => {
           </div>
           <div className="recipe__page__info__row__2">
             <h2 className="recipe__page__base__text">Instructions:</h2>
-            <div className="recipe__page__para__wrapper">
-              <p className="recipe__page__para--skeleton skeleton"></p>
-              <p className="recipe__page__para--skeleton skeleton"></p>
-              <p className="recipe__page__para--skeleton skeleton"></p>
-              <p className="recipe__page__para--skeleton skeleton"></p>
-              <p className="recipe__page__para--skeleton skeleton"></p>
-              <p className="recipe__page__para--skeleton skeleton"></p>
-              <p className="recipe__page__para--skeleton skeleton"></p>
-              <p className="recipe__page__para--skeleton skeleton"></p>
-            </div>
+            <ul className="recipe__page__para__wrapper">
+              <li className="recipe__page__para--skeleton"></li>
+              <li className="recipe__page__para--skeleton"></li>
+              <li className="recipe__page__para--skeleton"></li>
+              <li className="recipe__page__para--skeleton"></li>
+              <li className="recipe__page__para--skeleton"></li>
+              <li className="recipe__page__para--skeleton"></li>
+              <li className="recipe__page__para--skeleton"></li>
+              <li className="recipe__page__para--skeleton"></li>
+            </ul>
 
             <div className="recipe__page__video">
               <h2 className="recipe__page__base__text">Youtube Video:</h2>
