@@ -27,12 +27,12 @@ a {
   color: #fff;
 }
 
-ul{
+ul {
   padding: 0px 20px;
   font-size: 16px;
 }
 
-li{
+li {
   margin-bottom: 2px;
 }
 
@@ -145,6 +145,57 @@ li{
 
 .nav__user:hover {
   color: var(--primary);
+}
+
+.nav__menu{
+  color: #fff;
+  font-size: 24px;
+  display: none;
+  cursor: pointer;
+}
+
+/* Menu */
+
+.menu {
+  position: fixed;
+  background-color:var(--secondary);
+  z-index: 99;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transition: 200ms ease;
+}
+
+.menu-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.menu__close {
+  position: absolute;
+  top: 44px;
+  right: 32px;
+  border: none;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.menu__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.menu__link {
+  font-size: 32px;
 }
 
 /* Landing Background */
@@ -523,8 +574,7 @@ li{
 
 /* Recipe Page */
 
-
-.recipe__page__wrapper{
+.recipe__page__wrapper {
   max-width: 1024px;
   min-width: 400px;
   padding: 0px 40px;
@@ -537,7 +587,7 @@ li{
   border: 2px var(--primary) solid;
 }
 
-.recipe__page__img__wrapper{
+.recipe__page__img__wrapper {
   background-color: #1e1e1e;
   width: 100%;
   max-width: 297px;
@@ -546,7 +596,7 @@ li{
   border-radius: 8px;
 }
 
-.recipe__page__img{
+.recipe__page__img {
   width: 297px;
   height: 432px;
   border-radius: 8px;
@@ -555,56 +605,56 @@ li{
   z-index: -2;
 }
 
-.recipe__page__title{
+.recipe__page__title {
   font-size: 48px;
   margin-bottom: 15px;
   transition: color 400ms ease;
 }
 
-.recipe__page__title:hover{
-  color:var(--primary);
+.recipe__page__title:hover {
+  color: var(--primary);
 }
 
-.recipe__page__info__row__2{
+.recipe__page__info__row__2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;  
+  gap: 20px;
 }
 
-.recipe__page__text__container__1{
+.recipe__page__text__container__1 {
   display: flex;
 }
 
-.recipe__page__text__container__2{
+.recipe__page__text__container__2 {
   display: flex;
- flex-direction: column; 
+  flex-direction: column;
 }
 
-.recipe__page__base__text{
+.recipe__page__base__text {
   font-size: 24px;
   margin-bottom: 10px;
   padding-right: 5px;
 }
 
-.recipe__page__text{
+.recipe__page__text {
   font-size: 24px;
   margin-bottom: 10px;
   transition: color 400ms ease;
 }
 
-.recipe__page__text:hover{
-  color:var(--primary); 
+.recipe__page__text:hover {
+  color: var(--primary);
 }
 
-.recipe__page__para{
+.recipe__page__para {
   margin-bottom: 5px;
   font-size: 18px;
 }
 
-.recipe__page__video{
+.recipe__page__video {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   align-items: center;
   border: none;
 }
@@ -617,7 +667,7 @@ li{
   overflow: hidden;
 }
 
-.recipe__page__img--skeleton{
+.recipe__page__img--skeleton {
   width: 297px;
   height: 432px;
   border-radius: 8px;
@@ -626,25 +676,25 @@ li{
   z-index: -2;
 }
 
-.recipe__page__title--skeleton{
+.recipe__page__title--skeleton {
   width: 400px;
   height: 48px;
   margin-bottom: 15px;
 }
 
-.recipe__page__text--skeleton{
+.recipe__page__text--skeleton {
   width: 150px;
   height: 24px;
 }
 
-.recipe__page__list--skeleton{
+.recipe__page__list--skeleton {
   background-color: #4f4f4f;
   color: #dddbdd;
   width: 300px;
   margin-bottom: 2px;
 }
 
-.recipe__page__para--skeleton{
+.recipe__page__para--skeleton {
   background-color: #4f4f4f;
   color: #dddbdd;
   width: 900px;
@@ -652,7 +702,47 @@ li{
   margin-bottom: 8px;
 }
 
-.source--skeleton{
+.recipe__page__source--skeleton {
   width: 400px;
   height: 24px;
+}
+
+
+/* Large Screens */
+
+@media (max-width: 1024px) {
+  
+}
+
+/* Medium Screens */
+
+@media (max-width: 768px) {
+  .nav__menu{
+    display: block;
+  }
+
+  .nav__input__wrapper,
+  .nav__user,
+  .nav__link__1,
+  .nav__link__2{
+    display: none;
+  }
+
+  .recipe__background__img {
+    width: 100%;
+    height: 500px;
+  }
+  
+}
+
+/* Small Screens */
+
+@media (max-width: 640px) {
+
+
+}
+
+/* Mobile Devices */
+
+@media (max-width: 480px) {
 }

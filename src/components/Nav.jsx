@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faBars } from "@fortawesome/free-solid-svg-icons";
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 import React, { useContext, useState } from "react";
 import LandingBackground from "../assets/food-header.jpg";
@@ -8,6 +8,7 @@ import { AppContext } from "../context/AppContext";
 import Filter from "./ui/Filter";
 import { Link } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
+import Menu from "./ui/Menu";
 
 const Nav = () => {
   const {
@@ -18,9 +19,9 @@ const Nav = () => {
     focusInput,
     inputRef,
     inputPlaceholder,
-    handleHomePage
   } = useContext(AppContext);
 
+  const [menuOpen, setMenuOpen] = useState(false)
   const [filterOpen, setFilterOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -69,6 +70,9 @@ const Nav = () => {
                 <i className="nav__user">
                   {" "}
                   <FontAwesomeIcon icon={faCircleUser} />
+                </i>
+                <i className="nav__menu" onClick={() => setMenuOpen(true)}>
+                  <FontAwesomeIcon icon={faBars} />
                 </i>
               </div>
             </div>
@@ -120,6 +124,7 @@ const Nav = () => {
           </figure>
         </div>
       </section>
+      <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <Filter filterOpen={filterOpen} setFilterOpen={setFilterOpen} />
     </>
   );
