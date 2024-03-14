@@ -111,6 +111,7 @@ const RecipePage = () => {
                     <h2 className="recipe__page__base__text">
                       Source:{" "}
                       <a
+                      className="recipe__page__source"
                         href={selectedRecipe.strSource}
                         target="_blank"
                         rel="noopener noreferrer"
