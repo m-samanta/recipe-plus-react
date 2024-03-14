@@ -49,10 +49,10 @@ const RecipeDetails = () => {
               <li className="recipe__page__para--skeleton"></li>
             </ul>
 
-            <div className="recipe__page__video">
+            <div className="recipe__page__video__wrapper">
               <h2 className="recipe__page__base__text">Youtube Video:</h2>
               <br />
-              <iframe className="recipe__page__video skeleton" width="560" height="315"></iframe>
+              <iframe className="recipe__page__video skeleton"></iframe>
             </div>
             <h2 className="recipe__page__base__text">
               Source: <span className="recipe__page__source--skeleton skeleton"/>

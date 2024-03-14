@@ -90,14 +90,13 @@ const RecipePage = () => {
                   </ul>
 
                   {selectedRecipe.strYoutube && (
-                    <div className="recipe__page__video">
+                    <div className="recipe__page__video__wrapper">
                       <h2 className="recipe__page__base__text">
                         Youtube Video:
                       </h2>
                       <br />
                       <iframe
-                        width="560"
-                        height="315"
+                      className="recipe__page__video"
                         src={`https://www.youtube.com/embed/${
                           selectedRecipe.strYoutube.split("v=")[1]
                         }`}
