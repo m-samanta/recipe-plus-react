@@ -94,7 +94,6 @@ const RecipePage = () => {
                       <h2 className="recipe__page__base__text">
                         Youtube Video:
                       </h2>
-                      <br />
                       <iframe
                       className="recipe__page__video"
                         src={`https://www.youtube.com/embed/${

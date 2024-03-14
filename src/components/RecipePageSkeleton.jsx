@@ -6,7 +6,7 @@ const RecipeDetails = () => {
       <div className="container">
         <div className="recipe__page__wrapper">
           <figure className="recipe__page__img__wrapper skeleton">
-            <div className="recipe__page__img--skeleton" src="" alt="" />
+            <div className="recipe__page__img skeleton" src="" alt="" />
           </figure>
           <div className="recipe__page__info__row__1">
             <h2 className="recipe__page__title--skeleton skeleton"></h2>
@@ -21,7 +21,7 @@ const RecipeDetails = () => {
               </div>
               <div className="recipe__page__text__container__2">
                 <h2 className="recipe__page__base__text">Ingredients:</h2>
-                <ul>
+                <ul className="recipe__page__list__wrapper">
               <li className="recipe__page__list--skeleton"></li>
               <li className="recipe__page__list--skeleton"></li>
               <li className="recipe__page__list--skeleton"></li>
@@ -51,7 +51,6 @@ const RecipeDetails = () => {
 
             <div className="recipe__page__video__wrapper">
               <h2 className="recipe__page__base__text">Youtube Video:</h2>
-              <br />
               <iframe className="recipe__page__video skeleton"></iframe>
             </div>
             <h2 className="recipe__page__base__text">
