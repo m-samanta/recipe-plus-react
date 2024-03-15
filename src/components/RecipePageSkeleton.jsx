@@ -22,17 +22,17 @@ const RecipeDetails = () => {
               <div className="recipe__page__text__container__2">
                 <h2 className="recipe__page__base__text">Ingredients:</h2>
                 <ul className="recipe__page__list__wrapper">
-              <li className="recipe__page__list--skeleton"></li>
-              <li className="recipe__page__list--skeleton"></li>
-              <li className="recipe__page__list--skeleton"></li>
-              <li className="recipe__page__list--skeleton"></li>
-              <li className="recipe__page__list--skeleton"></li>
-              <li className="recipe__page__list--skeleton"></li>
-              <li className="recipe__page__list--skeleton"></li>
-              <li className="recipe__page__list--skeleton"></li>
-              <li className="recipe__page__list--skeleton"></li>
-              <li className="recipe__page__list--skeleton"></li>
-            </ul>
+                  <li className="recipe__page__list--skeleton"></li>
+                  <li className="recipe__page__list--skeleton"></li>
+                  <li className="recipe__page__list--skeleton"></li>
+                  <li className="recipe__page__list--skeleton"></li>
+                  <li className="recipe__page__list--skeleton"></li>
+                  <li className="recipe__page__list--skeleton"></li>
+                  <li className="recipe__page__list--skeleton"></li>
+                  <li className="recipe__page__list--skeleton"></li>
+                  <li className="recipe__page__list--skeleton"></li>
+                  <li className="recipe__page__list--skeleton"></li>
+                </ul>
               </div>
             </div>
           </div>
@@ -54,7 +54,8 @@ const RecipeDetails = () => {
               <iframe className="recipe__page__video skeleton"></iframe>
             </div>
             <h2 className="recipe__page__base__text">
-              Source: <span className="recipe__page__source--skeleton skeleton"/>
+              Source:{" "}
+              <span className="recipe__page__source--skeleton skeleton" />
             </h2>
           </div>
         </div>

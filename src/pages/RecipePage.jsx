@@ -9,18 +9,15 @@ const RecipePage = () => {
   const { idMeal } = useParams();
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [showSkeleton, setShowSkeleton] = useState(true);
-  
 
-// Select recipe data based on idMeal for detailed display
-useEffect(() => {
-  if (idMeal) {
-    fetchRecipeById(idMeal)
-      .then(recipe => {
+  // Select recipe data based on idMeal for detailed display
+  useEffect(() => {
+    if (idMeal) {
+      fetchRecipeById(idMeal).then((recipe) => {
         setSelectedRecipe(recipe);
-      })
-  }
-}, [idMeal]);
-
+      });
+    }
+  }, [idMeal]);
 
   // Forced loading state to show skeleton before loading
   useEffect(() => {

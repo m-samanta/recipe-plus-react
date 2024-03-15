@@ -13,7 +13,11 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
         <Link to="/" className="menu__link" onClick={() => setMenuOpen(false)}>
           Home
         </Link>
-        <Link to="/recipe" className="menu__link" onClick={() => setMenuOpen(false)}>
+        <Link
+          to="/recipe"
+          className="menu__link"
+          onClick={() => setMenuOpen(false)}
+        >
           Recipe
         </Link>
       </div>
