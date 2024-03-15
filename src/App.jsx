@@ -34,6 +34,14 @@ function App() {
     setRecipes(recipesData.meals);
   }
 
+// Fetch data based on idMeal
+async function fetchRecipeById(idMeal) {
+  const searchURL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`;
+  const response = await axios.get(searchURL);
+  const { data: recipeData } = response;
+  return recipeData.meals;
+}
+
   // Filter function
   const handleFilterChange = (newFilter) => {
     let placeholderText = "";
@@ -105,7 +113,9 @@ function App() {
         handleFilterChange,
         inputPlaceholder,
         searchMade,
-        handleHomePage
+        handleHomePage,
+        fetchRecipeById,
+        setRecipes
       }}
     >
       <Router>

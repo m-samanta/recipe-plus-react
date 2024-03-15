@@ -19,21 +19,26 @@ const RecipeBanner = ({ recipe }) => {
               <i className="recipe__info__icon">
                 <FontAwesomeIcon icon={faEarthAmericas} />
               </i>
-              <p className="recipe__info__text">{recipe.strArea}</p>
+              <p className="recipe__info__text">
+                {recipe.strArea ? recipe.strArea : "Click for info"}
+              </p>
             </div>
             <div className="recipe__info recipe__info2">
               <i className="recipe__info__icon">
                 <FontAwesomeIcon icon={faStar} />
               </i>
-              <p className="recipe__info__text">{recipe.strCategory}</p>
+              <p className="recipe__info__text">
+                {recipe.strCategory ? recipe.strCategory : "Click for info"}
+              </p>
             </div>
             <div className="recipe__info recipe__info3">
               <i className="recipe__info__icon">
                 <FontAwesomeIcon icon={faList} />
               </i>
               <p className="recipe__info__text">
-                {recipe.strIngredient1 &&
-                  recipe.strIngredient1.substring(0, 5) + "..."}
+                {recipe.strIngredient1
+                  ? recipe.strIngredient1.substring(0, 5) + "..."
+                  : "Click for info"}
               </p>
             </div>
           </div>

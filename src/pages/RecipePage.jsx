@@ -5,10 +5,22 @@ import RecipesList from "../components/RecipesList";
 import RecipePageSkeleton from "../components/RecipePageSkeleton";
 
 const RecipePage = () => {
-  const { recipes } = useContext(AppContext);
+  const { fetchRecipeById } = useContext(AppContext);
   const { idMeal } = useParams();
-  const selectedRecipe = recipes.find((recipe) => recipe.idMeal === idMeal);
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [showSkeleton, setShowSkeleton] = useState(true);
+  
+
+// Select recipe data based on idMeal for detailed display
+useEffect(() => {
+  if (idMeal) {
+    fetchRecipeById(idMeal)
+      .then(recipe => {
+        setSelectedRecipe(recipe);
+      })
+  }
+}, [idMeal]);
+
 
   // Forced loading state to show skeleton before loading
   useEffect(() => {
@@ -35,42 +47,42 @@ const RecipePage = () => {
                 <figure className="recipe__page__img__wrapper">
                   <img
                     className="recipe__page__img"
-                    src={selectedRecipe.strMealThumb}
+                    src={selectedRecipe[0].strMealThumb}
                     alt=""
                   />
                 </figure>
                 <div className="recipe__page__info__row__1">
                   <h2 className="recipe__page__title">
-                    {selectedRecipe.strMeal}
+                    {selectedRecipe[0].strMeal}
                   </h2>
                   <div className="recipe__page__info">
                     <div className="recipe__page__text__container__1">
                       <h2 className="recipe__page__base__text">Location: </h2>
                       <h2 className="recipe__page__text">
                         {" "}
-                        {selectedRecipe.strArea}
+                        {selectedRecipe[0].strArea}
                       </h2>
                     </div>
                     <div className="recipe__page__text__container__1">
                       <h2 className="recipe__page__base__text">Category: </h2>
                       <h2 className="recipe__page__text">
                         {" "}
-                        {selectedRecipe.strCategory}
+                        {selectedRecipe[0].strCategory}
                       </h2>
                     </div>
                     <div className="recipe__page__text__container__2">
                       <h2 className="recipe__page__base__text">Ingredients:</h2>
                       <ul>
-                        {Object.keys(selectedRecipe)
+                        {Object.keys(selectedRecipe[0])
                           .filter(
                             (key) =>
                               key.startsWith("strIngredient") &&
-                              selectedRecipe[key]
+                              selectedRecipe[0][key]
                           )
                           .map((key) => (
                             <li key={key}>
-                              {selectedRecipe[key]} - {""}
-                              {selectedRecipe[`strMeasure${key.slice(13)}`]}
+                              {selectedRecipe[0][key]} - {""}
+                              {selectedRecipe[0][`strMeasure${key.slice(13)}`]}
                             </li>
                           ))}
                       </ul>
@@ -80,7 +92,7 @@ const RecipePage = () => {
                 <div className="recipe__page__info__row__2">
                   <h2 className="recipe__page__base__text">Instructions:</h2>
                   <ul className="recipe__page__para__wrapper">
-                    {selectedRecipe.strInstructions
+                    {selectedRecipe[0].strInstructions
                       .split(".")
                       .slice(0, -1)
                       .map((sentence, index) => (
@@ -90,7 +102,7 @@ const RecipePage = () => {
                       ))}
                   </ul>
 
-                  {selectedRecipe.strYoutube && (
+                  {selectedRecipe[0].strYoutube && (
                     <div className="recipe__page__video__wrapper">
                       <h2 className="recipe__page__base__text">
                         Youtube Video:
@@ -98,7 +110,7 @@ const RecipePage = () => {
                       <iframe
                         className="recipe__page__video"
                         src={`https://www.youtube.com/embed/${
-                          selectedRecipe.strYoutube.split("v=")[1]
+                          selectedRecipe[0].strYoutube.split("v=")[1]
                         }`}
                         title="YouTube video player"
                         frameborder="0"
@@ -107,14 +119,14 @@ const RecipePage = () => {
                       ></iframe>
                     </div>
                   )}
-                  {selectedRecipe.strSource && (
+                  {selectedRecipe[0].strSource && (
                     <h2 className="recipe__page__base__text">
                       Source:{" "}
                       <a
                         className="recipe__page__source"
-                        href={selectedRecipe.strSource}
+                        href={selectedRecipe[0].strSource}
                       >
-                        {selectedRecipe.strSource}
+                        {selectedRecipe[0].strSource}
                       </a>
                     </h2>
                   )}
