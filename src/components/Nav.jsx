@@ -26,6 +26,7 @@ const Nav = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Navigate to /recipe page
   const handleSearch = (e) => {
     e.preventDefault();
     if (location.pathname !== "/recipe") {

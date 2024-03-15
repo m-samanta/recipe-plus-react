@@ -7,6 +7,7 @@ const RecipesList = () => {
   const { recipes, searchMade, searchQuery } = useContext(AppContext);
   const [showBanners, setShowBanners] = useState(false);
 
+  // Forced loading state to show skeleton before loading
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowBanners(true);

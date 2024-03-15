@@ -1,25 +1,24 @@
-import React, { useContext, useEffect } from 'react';
-import RecipesList from '../components/RecipesList';
-import { AppContext } from '../context/AppContext';
+import React, { useContext, useEffect } from "react";
+import RecipesList from "../components/RecipesList";
+import { AppContext } from "../context/AppContext";
 
 const SearchPage = () => {
-    const {
-        handleIconClick,
-      } = useContext(AppContext);
+  const { handleIconClick } = useContext(AppContext);
 
-useEffect(() => {
+  useEffect(() => {
     handleIconClick();
-}, [handleIconClick])
+  }, [handleIconClick]);
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-      })
+  // Scroll to the top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
-    return (
-        <>
-        <RecipesList />
-        </> 
-    );
-}
+  return (
+    <>
+      <RecipesList />
+    </>
+  );
+};
 
 export default SearchPage;

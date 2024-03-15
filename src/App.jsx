@@ -18,6 +18,7 @@ function App() {
   const [searchMade, setSearchMade] = useState(false);
   const inputRef = useRef(null);
 
+  // Fetch + store data for homepage (static recipes - chicken)
   async function fetchChickenRecipes() {
     const searchURL = `https://themealdb.com/api/json/v1/1/search.php?s=chicken`;
     const response = await axios.get(searchURL);
@@ -25,14 +26,15 @@ function App() {
     setRecipes(recipesData.meals);
   }
 
+  // Fetch + store data for recipepage (dynamic recipes based on search made)
   async function fetchRecipes(searchQuery) {
     const searchURL = `https://themealdb.com/api/json/v1/1/${filter}=${searchQuery}`;
     const response = await axios.get(searchURL);
     const { data: recipesData } = response;
-
     setRecipes(recipesData.meals);
   }
 
+  // Filter function
   const handleFilterChange = (newFilter) => {
     let placeholderText = "";
 
@@ -52,6 +54,7 @@ function App() {
     setInputPlaceholder(placeholderText);
   };
 
+  // Choosing data based on if a search is made/clicked on recipe page
   useEffect(() => {
     if (!searchMade) {
       fetchChickenRecipes();
@@ -60,6 +63,7 @@ function App() {
     }
   }, [searchMade, searchQuery]);
 
+  // Search via pressing Enter
   const handleKeyPress = (event) => {
     if (event.keyCode === 13) {
       setSearchQuery(inputValue.trim());
@@ -67,19 +71,23 @@ function App() {
     }
   };
 
+  // Search via click
   const handleIconClick = () => {
     setSearchQuery(inputValue.trim());
     setSearchMade(true);
   };
 
+  // Turning on homepage data when accessing homepage
   const handleHomePage = () => {
     setSearchMade(false);
   }
 
+  // Focus nav searchbar
   const focusInput = () => {
     inputRef.current.focus();
   };
 
+  // Update fetching text to latest searched text
   const handleChange = (event) => {
     setInputValue(event.target.value);
   };

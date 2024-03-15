@@ -4,6 +4,7 @@ import { AppContext } from "../../context/AppContext";
 const Filter = ({ filterOpen, setFilterOpen }) => {
   const { handleFilterChange } = useContext(AppContext);
 
+  // Close filter if clicked outside the filter section
   const handleWrapperClick = (event) => {
     if (!event.target.closest(".recipe__filter")) {
       setFilterOpen(false);

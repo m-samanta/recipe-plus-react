@@ -10,23 +10,24 @@ const RecipePage = () => {
   const selectedRecipe = recipes.find((recipe) => recipe.idMeal === idMeal);
   const [showSkeleton, setShowSkeleton] = useState(true);
 
+  // Forced loading state to show skeleton before loading
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSkeleton(false);
     }, 1000);
-
     return () => clearTimeout(timer);
   }, []);
 
+  // Scroll to the top
   useEffect(() => {
     window.scrollTo(0, 0);
   });
 
   return (
     <>
-      {showSkeleton? (
+      {showSkeleton ? (
         <RecipePageSkeleton />
-        ) : (
+      ) : (
         <div className="container">
           <div className="recipe__page__wrapper">
             {selectedRecipe && (
@@ -95,7 +96,7 @@ const RecipePage = () => {
                         Youtube Video:
                       </h2>
                       <iframe
-                      className="recipe__page__video"
+                        className="recipe__page__video"
                         src={`https://www.youtube.com/embed/${
                           selectedRecipe.strYoutube.split("v=")[1]
                         }`}
@@ -110,10 +111,8 @@ const RecipePage = () => {
                     <h2 className="recipe__page__base__text">
                       Source:{" "}
                       <a
-                      className="recipe__page__source"
+                        className="recipe__page__source"
                         href={selectedRecipe.strSource}
-                        target="_blank"
-                        rel="noopener noreferrer"
                       >
                         {selectedRecipe.strSource}
                       </a>
