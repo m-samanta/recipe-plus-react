@@ -1,17 +1,18 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import RecipesList from "../components/RecipesList";
-import { AppContext } from "../context/AppContext";
+import { useStore } from "../store";
 
-const HomePage = () => {
-  const { handleHomePage } = useContext(AppContext);
+function HomePage() {
+  const { handleHomePage, fetchRecipes, setSearchMade } = useStore();
 
-  // Load home page recipes
   useEffect(() => {
-    handleHomePage();
-  }, [handleHomePage]);
+    handleHomePage()
+    fetchRecipes("chicken");
+    setSearchMade(false);
+  }, [fetchRecipes, setSearchMade]); 
 
-  // Scroll to the top
-  useEffect(() => {
+   // Scroll to the top
+   useEffect(() => {
     window.scrollTo(0, 0);
   });
 

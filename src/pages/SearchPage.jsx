@@ -1,13 +1,16 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import RecipesList from "../components/RecipesList";
-import { AppContext } from "../context/AppContext";
+import { useStore } from "../store";
 
 const SearchPage = () => {
-  const { handleIconClick } = useContext(AppContext);
+  const { handleSearchPage, fetchRecipes, setSearchMade, query } = useStore();
 
   useEffect(() => {
-    handleIconClick();
-  }, [handleIconClick]);
+    handleSearchPage()
+    fetchRecipes(query);
+    setSearchMade(true);
+  }, [fetchRecipes, setSearchMade]); 
+
 
   // Scroll to the top
   useEffect(() => {

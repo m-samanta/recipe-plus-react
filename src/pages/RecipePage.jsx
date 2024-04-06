@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { AppContext } from "../context/AppContext";
 import { useParams } from "react-router-dom";
 import RecipesList from "../components/RecipesList";
 import RecipePageSkeleton from "../components/RecipePageSkeleton";
+import { useStore } from "../store";
 
 const RecipePage = () => {
-  const { fetchRecipeById } = useContext(AppContext);
+  const { recipeData, fetchRecipeById } = useStore();
   const { idMeal } = useParams();
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [showSkeleton, setShowSkeleton] = useState(true);
@@ -13,11 +13,13 @@ const RecipePage = () => {
   // Select recipe data based on idMeal for detailed display
   useEffect(() => {
     if (idMeal) {
-      fetchRecipeById(idMeal).then((recipe) => {
-        setSelectedRecipe(recipe);
-      });
+      fetchRecipeById(idMeal);
     }
   }, [idMeal]);
+
+  useEffect(() => {
+    setSelectedRecipe(recipeData);
+  }, [recipeData]);
 
   // Forced loading state to show skeleton before loading
   useEffect(() => {

@@ -9,17 +9,19 @@ import Filter from "./ui/Filter";
 import { Link } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
 import Menu from "./ui/Menu";
+import { useStore } from "../store";
 
 const Nav = () => {
   const {
     inputValue,
     handleKeyPress,
     handleIconClick,
-    handleChange,
     focusInput,
     inputRef,
-    inputPlaceholder,
   } = useContext(AppContext);
+
+  const { handleFilterChange, inputPlaceholder } = useStore();
+
 
   const [menuOpen, setMenuOpen] = useState(false)
   const [filterOpen, setFilterOpen] = useState(false);
@@ -60,7 +62,7 @@ const Nav = () => {
                       className="nav__input"
                       placeholder={inputPlaceholder}
                       value={inputValue}
-                      onChange={handleChange}
+                      onChange={handleFilterChange}
                       onKeyDown={handleKeyPress}
                     />
                     <i className="nav__search" onClick={focusInput}>
@@ -99,7 +101,7 @@ const Nav = () => {
                       className="recipe__input"
                       placeholder={inputPlaceholder}
                       value={inputValue}
-                      onChange={handleChange}
+                      onChange={handleFilterChange}
                       onKeyDown={handleKeyPress}
                     />
                     <i

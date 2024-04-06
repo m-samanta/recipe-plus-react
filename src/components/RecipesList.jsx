@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import { AppContext } from "../context/AppContext";
+import React, { useEffect, useState } from "react";
+import { useStore } from "../store";
 import RecipeBanner from "./ui/RecipeBanner";
 import RecipeBannerSkeleton from "./ui/RecipeBannerSkeleton";
 
 const RecipesList = () => {
-  const { recipes, searchMade, searchQuery } = useContext(AppContext);
+  const { recipes, searchMade, searchQuery } = useStore(); // Use the Zustand store
   const [showBanners, setShowBanners] = useState(false);
 
   // Forced loading state to show skeleton before loading

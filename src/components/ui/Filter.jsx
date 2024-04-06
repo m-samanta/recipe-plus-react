@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { AppContext } from "../../context/AppContext";
+import { useStore } from "../../store";
+
 
 const Filter = ({ filterOpen, setFilterOpen }) => {
-  const { handleFilterChange } = useContext(AppContext);
+  const { handleFilterChange } = useStore();
 
   // Close filter if clicked outside the filter section
   const handleWrapperClick = (event) => {
