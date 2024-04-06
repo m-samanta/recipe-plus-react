@@ -1,10 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faBars } from "@fortawesome/free-solid-svg-icons";
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
-import React, { useContext, useState } from "react";
+import React, { useRef, useState } from "react";
 import LandingBackground from "../assets/food-header.jpg";
 import PageLogo from "../assets/logo-white.png";
-import { AppContext } from "../context/AppContext";
 import Filter from "./ui/Filter";
 import { Link } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -12,21 +11,13 @@ import Menu from "./ui/Menu";
 import { useStore } from "../store";
 
 const Nav = () => {
-  const {
-    inputValue,
-    handleKeyPress,
-    handleIconClick,
-    focusInput,
-    inputRef,
-  } = useContext(AppContext);
-
-  const { handleFilterChange, inputPlaceholder } = useStore();
-
-
-  const [menuOpen, setMenuOpen] = useState(false)
+  const { inputPlaceholder, setSearchMade, setSearchQuery } = useStore();
+  const [inputValue, setInputValue] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const inputRef = useRef(null);
 
   // Navigate to /recipe page
   const handleSearch = (e) => {
@@ -34,6 +25,30 @@ const Nav = () => {
     if (location.pathname !== "/recipe") {
       navigate("/recipe");
     }
+  };
+
+  // Focus nav searchbar
+  const focusInput = () => {
+    inputRef.current.focus();
+  };
+
+  // Search via pressing Enter
+  const handleKeyPress = (event) => {
+    if (event.keyCode === 13) {
+      setSearchQuery(inputValue.trim());
+      setSearchMade(true);
+    }
+  };
+
+  // Search via click
+  const handleIconClick = () => {
+    setSearchQuery(inputValue.trim());
+    setSearchMade(true);
+  };
+
+  // Handle Input Text
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
   };
 
   return (
@@ -62,7 +77,7 @@ const Nav = () => {
                       className="nav__input"
                       placeholder={inputPlaceholder}
                       value={inputValue}
-                      onChange={handleFilterChange}
+                      onChange={handleInputChange}
                       onKeyDown={handleKeyPress}
                     />
                     <i className="nav__search" onClick={focusInput}>
@@ -101,7 +116,7 @@ const Nav = () => {
                       className="recipe__input"
                       placeholder={inputPlaceholder}
                       value={inputValue}
-                      onChange={handleFilterChange}
+                      onChange={handleInputChange}
                       onKeyDown={handleKeyPress}
                     />
                     <i

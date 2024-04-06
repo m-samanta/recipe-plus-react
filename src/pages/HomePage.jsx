@@ -3,16 +3,15 @@ import RecipesList from "../components/RecipesList";
 import { useStore } from "../store";
 
 function HomePage() {
-  const { handleHomePage, fetchRecipes, setSearchMade } = useStore();
+  const { handleHomePage, fetchRecipes } = useStore();
 
   useEffect(() => {
-    handleHomePage()
-    fetchRecipes("chicken");
-    setSearchMade(false);
-  }, [fetchRecipes, setSearchMade]); 
+    handleHomePage();
+    fetchRecipes();
+  }, [fetchRecipes]);
 
-   // Scroll to the top
-   useEffect(() => {
+  // Scroll to the top
+  useEffect(() => {
     window.scrollTo(0, 0);
   });
 
@@ -21,6 +20,6 @@ function HomePage() {
       <RecipesList />
     </>
   );
-};
+}
 
 export default HomePage;

@@ -4,7 +4,7 @@ import RecipeBanner from "./ui/RecipeBanner";
 import RecipeBannerSkeleton from "./ui/RecipeBannerSkeleton";
 
 const RecipesList = () => {
-  const { recipes, searchMade, searchQuery } = useStore(); // Use the Zustand store
+  const { recipes, searchMade, searchQuery } = useStore();
   const [showBanners, setShowBanners] = useState(false);
 
   // Forced loading state to show skeleton before loading

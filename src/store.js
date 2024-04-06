@@ -7,35 +7,10 @@ const useStore = create((set) => ({
   recipes: [],
   searchMade: false,
   recipeData: null,
-  query: "",
+  searchQuery: "",
 
-  handleFilterChange: (newFilter) => {
-    let placeholderText = "";
-
-    switch (newFilter) {
-      case "search.php?s":
-        placeholderText = "Find a Recipe by Name";
-        break;
-      case "filter.php?a":
-        placeholderText = "Find a Recipe by Area";
-        break;
-      case "filter.php?c":
-        placeholderText = "Find a Recipe by Category";
-        break;
-    }
-    set({ filter: newFilter, inputPlaceholder: placeholderText })
-  },
-
-  fetchRecipes: async (query) => {
-    const filterValue =
-    query === "chicken"
-      ? "search.php?s=chicken"
-      : `${useStore.getState().filter}=${useStore.getState().query}`;
-    const searchURL = `https://themealdb.com/api/json/v1/1/${filterValue}`;
-
-    const response = await axios.get(searchURL);
-    const { meals } = response.data;
-    set({ recipes: meals });
+  setSearchQuery: (value) => {
+    set({ searchQuery: value });
   },
 
   setSearchMade: (value) => {
@@ -57,7 +32,7 @@ const useStore = create((set) => ({
       const { data: recipeData } = response;
       set({ recipeData: recipeData.meals });
     } catch (error) {
-      console.error('Error fetching recipe:', error);
+      console.error("Error fetching recipe:", error);
     }
   },
 
@@ -65,6 +40,40 @@ const useStore = create((set) => ({
     set({ recipeData: newRecipeData });
   },
 
+  handleFilterChange: (newFilter) => {
+    let placeholderText = "";
+
+    switch (newFilter) {
+      case "search.php?s":
+        placeholderText = "Find a Recipe by Name";
+        break;
+      case "filter.php?a":
+        placeholderText = "Find a Recipe by Area";
+        break;
+      case "filter.php?c":
+        placeholderText = "Find a Recipe by Category";
+        break;
+    }
+    set({ filter: newFilter, inputPlaceholder: placeholderText });
+  },
+
+  fetchRecipes: async (searchQuery) => {
+    const { searchMade } = useStore.getState();
+    let filterValue = "";
+
+    if (searchMade) {
+      filterValue = `${useStore.getState().filter}=${
+        useStore.getState().searchQuery
+      }`;
+    } else {
+      filterValue = "search.php?s=chicken";
+    }
+
+    const searchURL = `https://themealdb.com/api/json/v1/1/${filterValue}`;
+    const response = await axios.get(searchURL);
+    const { meals } = response.data;
+    set({ recipes: meals });
+  },
 }));
 
 export { useStore };

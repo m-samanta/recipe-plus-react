@@ -3,14 +3,12 @@ import RecipesList from "../components/RecipesList";
 import { useStore } from "../store";
 
 const SearchPage = () => {
-  const { handleSearchPage, fetchRecipes, setSearchMade, query } = useStore();
+  const { handleSearchPage, fetchRecipes, searchQuery } = useStore();
 
   useEffect(() => {
-    handleSearchPage()
-    fetchRecipes(query);
-    setSearchMade(true);
-  }, [fetchRecipes, setSearchMade]); 
-
+    handleSearchPage();
+    fetchRecipes();
+  }, [fetchRecipes, searchQuery]);
 
   // Scroll to the top
   useEffect(() => {

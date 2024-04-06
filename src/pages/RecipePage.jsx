@@ -1,11 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import RecipesList from "../components/RecipesList";
 import RecipePageSkeleton from "../components/RecipePageSkeleton";
 import { useStore } from "../store";
+import ReactPlayer from "react-player/lazy";
 
 const RecipePage = () => {
-  const { recipeData, fetchRecipeById } = useStore();
+  const { recipeData, fetchRecipeById, fetchRecipes } = useStore();
   const { idMeal } = useParams();
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [showSkeleton, setShowSkeleton] = useState(true);
@@ -14,6 +15,7 @@ const RecipePage = () => {
   useEffect(() => {
     if (idMeal) {
       fetchRecipeById(idMeal);
+      fetchRecipes();
     }
   }, [idMeal]);
 
@@ -106,16 +108,13 @@ const RecipePage = () => {
                       <h2 className="recipe__page__base__text">
                         Youtube Video:
                       </h2>
-                      <iframe
+                      <ReactPlayer
                         className="recipe__page__video"
-                        src={`https://www.youtube.com/embed/${
+                        url={`https://www.youtube.com/embed/${
                           selectedRecipe[0].strYoutube.split("v=")[1]
                         }`}
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                      ></iframe>
+                        controls={true}
+                      />
                     </div>
                   )}
                   {selectedRecipe[0].strSource && (

@@ -51,7 +51,7 @@ const RecipeDetails = () => {
 
             <div className="recipe__page__video__wrapper">
               <h2 className="recipe__page__base__text">Youtube Video:</h2>
-              <iframe className="recipe__page__video skeleton"></iframe>
+              <div className="recipe__page__video skeleton"></div>
             </div>
             <h2 className="recipe__page__base__text">
               Source:{" "}
