@@ -3,7 +3,8 @@ import React from "react";
 const RecipeDetails = () => {
   return (
     <>
-      <div className="container">
+      <section>
+        <div className="container">
         <div className="recipe__page__wrapper">
           <figure className="recipe__page__img__wrapper skeleton">
             <div className="recipe__page__img skeleton" src="" alt="" />
@@ -59,7 +60,8 @@ const RecipeDetails = () => {
             </h2>
           </div>
         </div>
-      </div>
+        </div>
+      </section>
     </>
   );
 };

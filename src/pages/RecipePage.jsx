@@ -41,7 +41,8 @@ const RecipePage = () => {
       {showSkeleton ? (
         <RecipePageSkeleton />
       ) : (
-        <div className="container">
+        <section>
+          <div className="container">
           <div className="recipe__page__wrapper">
             {selectedRecipe && (
               <>
@@ -136,7 +137,8 @@ const RecipePage = () => {
               </>
             )}
           </div>
-        </div>
+          </div>
+        </section>
       )}
       <RecipesList />
     </>

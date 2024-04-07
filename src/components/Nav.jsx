@@ -53,7 +53,7 @@ const Nav = () => {
 
   return (
     <>
-      <section id="landing">
+      <header>
         <div className="recipe__background">
           <figure className="recipe__background__wrapper">
             <div className="nav__content">
@@ -141,7 +141,7 @@ const Nav = () => {
             </div>
           </figure>
         </div>
-      </section>
+      </header>
       <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <Filter filterOpen={filterOpen} setFilterOpen={setFilterOpen} />
     </>

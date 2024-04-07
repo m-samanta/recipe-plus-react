@@ -17,7 +17,7 @@ const RecipesList = () => {
 
   return (
     <>
-      <section id="recipes">
+      <section>
         <div className="container">
           <div className="row">
             <div className="recipes__content">
