@@ -665,8 +665,8 @@ li {
   padding-top: 30px;
 }
 
-.recipe__page__video {
-  width: 560px;
+.recipe__page__player__wrapper {
+  width:560px;
   height: 315px;
 }
 
@@ -912,7 +912,7 @@ li {
     margin-bottom: 5px;
   }
 
-  .recipe__page__video {
+  .recipe__page__player__wrapper {
     width: 448px;
     height: 252px;
   }
@@ -944,7 +944,7 @@ li {
     height: 12px;
   }
 
-  .recipe__page__video {
+  .recipe__page__player__wrapper {
     width: 336px;
     height: 189px;
   }
@@ -999,7 +999,7 @@ li {
     height: 14px;
   }
 
-  .recipe__page__video {
+  .recipe__page__player__wrapper {
     width: 269px;
     height: 151px;
   }

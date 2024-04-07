@@ -108,13 +108,17 @@ const RecipePage = () => {
                       <h2 className="recipe__page__base__text">
                         Youtube Video:
                       </h2>
+                      <div className="recipe__page__player__wrapper">
+
                       <ReactPlayer
-                        className="recipe__page__video"
+                      width="100%"
+                      height="100%"
                         url={`https://www.youtube.com/embed/${
                           selectedRecipe[0].strYoutube.split("v=")[1]
                         }`}
                         controls={true}
                       />
+                      </div>
                     </div>
                   )}
                   {selectedRecipe[0].strSource && (
