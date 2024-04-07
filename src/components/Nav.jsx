@@ -11,8 +11,7 @@ import Menu from "./ui/Menu";
 import { useStore } from "../store";
 
 const Nav = () => {
-  const { inputPlaceholder, setSearchMade, setSearchQuery } = useStore();
-  const [inputValue, setInputValue] = useState("");
+  const { inputValue, setInputValue, inputPlaceholder, setSearchMade, setSearchQuery } = useStore();
   const [menuOpen, setMenuOpen] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
   const navigate = useNavigate();

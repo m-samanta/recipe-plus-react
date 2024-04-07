@@ -575,7 +575,6 @@ li {
 
 .recipe__page__wrapper {
   max-width: 1024px;
-  min-width: 400px;
   padding: 0px 40px;
   margin: 0 auto;
   display: flex;

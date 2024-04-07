@@ -11,6 +11,11 @@ const useStore = create(
       searchMade: false,
       recipeData: null,
       searchQuery: "",
+      inputValue: "",
+
+      setInputValue: (value) => {
+        set({ inputValue: value });
+      },
 
       setSearchQuery: (value) => {
         set({ searchQuery: value });
@@ -28,21 +33,11 @@ const useStore = create(
         set({ searchMade: true });
       },
 
-      fetchRecipeById: async (idMeal) => {
-        const searchURL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`;
-        try {
-          const response = await axios.get(searchURL);
-          const { data: recipeData } = response;
-          set({ recipeData: recipeData.meals });
-        } catch (error) {
-          console.error("Error fetching recipe:", error);
-        }
-      },
-
       setRecipeData: (newRecipeData) => {
         set({ recipeData: newRecipeData });
       },
 
+      // Filter
       handleFilterChange: (newFilter) => {
         let placeholderText = "";
 
@@ -60,6 +55,7 @@ const useStore = create(
         set({ filter: newFilter, inputPlaceholder: placeholderText });
       },
 
+      // Fetch recipes based on search
       fetchRecipes: async (searchQuery) => {
         const { searchMade } = useStore.getState();
         let filterValue = "";
@@ -77,8 +73,21 @@ const useStore = create(
         const { meals } = response.data;
         set({ recipes: meals });
       },
+
+      // Fetch recipe by url id
+      fetchRecipeById: async (idMeal) => {
+        const searchURL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`;
+        try {
+          const response = await axios.get(searchURL);
+          const { data: recipeData } = response;
+          set({ recipeData: recipeData.meals });
+        } catch (error) {
+          console.error("Error fetching recipe:", error);
+        }
+      },
     }),
     {
+      // Store data locally
       name: "recipe-storage",
       storage: createJSONStorage(() => sessionStorage),
     }
