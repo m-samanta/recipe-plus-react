@@ -5,7 +5,7 @@ const Filter = ({ filterOpen, setFilterOpen }) => {
   const { handleFilterChange } = useStore();
 
   // Close filter if clicked outside the filter section
-  const handleWrapperClick = (event) => {
+  const handleFilterWrapperClick = (event) => {
     if (!event.target.closest(".recipe__filter")) {
       setFilterOpen(false);
     }
@@ -17,7 +17,7 @@ const Filter = ({ filterOpen, setFilterOpen }) => {
         className={`recipe__filter__wrapper ${
           filterOpen && "recipe__filter-open"
         }`}
-        onClick={handleWrapperClick}
+        onClick={handleFilterWrapperClick}
       >
         <div className="recipe__filter">
           <div

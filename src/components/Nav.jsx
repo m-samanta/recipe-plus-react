@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faBars } from "@fortawesome/free-solid-svg-icons";
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import LandingBackground from "../assets/food-header.jpg";
 import PageLogo from "../assets/logo-white.png";
 import Filter from "./ui/Filter";
@@ -9,14 +9,30 @@ import { Link } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
 import Menu from "./ui/Menu";
 import { useStore } from "../store";
+import ErrorMsg from "./ui/ErrorMsg";
 
 const Nav = () => {
-  const { inputValue, setInputValue, inputPlaceholder, setSearchMade, setSearchQuery } = useStore();
+  const {
+    inputValue,
+    setInputValue,
+    inputPlaceholder,
+    setSearchMade,
+    setSearchQuery,
+    recipes,
+  } = useStore();
   const [menuOpen, setMenuOpen] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
+  const [errorOpen, setErrorOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const inputRef = useRef(null);
+
+  // Show error if no recipes
+  useEffect(() => {
+    if (!recipes) {
+      setErrorOpen(true);
+    }
+  }, [recipes]);
 
   // Navigate to /recipe page
   const handleSearch = (e) => {
@@ -143,6 +159,7 @@ const Nav = () => {
       </header>
       <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <Filter filterOpen={filterOpen} setFilterOpen={setFilterOpen} />
+      <ErrorMsg errorOpen={errorOpen} setErrorOpen={setErrorOpen} />
     </>
   );
 };

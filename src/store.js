@@ -11,6 +11,7 @@ const useStore = create(
       searchMade: false,
       recipeData: null,
       searchQuery: "",
+      oldSearchQuery: "",
       inputValue: "",
 
       setInputValue: (value) => {
@@ -72,6 +73,19 @@ const useStore = create(
         const response = await axios.get(searchURL);
         const { meals } = response.data;
         set({ recipes: meals });
+        
+        setTimeout(() => {
+          const { recipes, searchQuery } = useStore.getState();
+          if (searchMade && recipes && recipes.length > 0) {
+            set({ oldSearchQuery: searchQuery })
+          }
+        }, 0)
+      },
+
+      // Switch to previous searchQuery
+      setNewSearchQuery: async () => {
+        const { oldSearchQuery } = useStore.getState();
+        set({ searchQuery: oldSearchQuery });
       },
 
       // Fetch recipe by url id

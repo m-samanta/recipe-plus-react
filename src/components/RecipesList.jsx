@@ -22,7 +22,13 @@ const RecipesList = () => {
           <div className="row">
             <div className="recipes__content">
               <div className="recipes__top">
-                {searchMade && (
+              {searchMade && !recipes && (
+                  <>
+                    <h2 className="recipes__top__title">No recipes found for:</h2>
+                    <h2 className="recipe__search__result">"{searchQuery}"</h2>
+                  </>
+                )}
+                {searchMade && recipes && (
                   <>
                     <h2 className="recipes__top__title">Search results for:</h2>
                     <h2 className="recipe__search__result">"{searchQuery}"</h2>
